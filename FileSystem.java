@@ -1,5 +1,5 @@
-package filesystem; // This class belongs to the filesystem package
-
+package filesystem;
+// This class belongs to the filesystem package
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,7 +12,40 @@ public class FileSystem {
     // Constructor: initializes the file system with a root folder
     public FileSystem() {
         root = new Node("root", false); // false = specifies root is a folder
-    }
+
+          // ---------- DEFAULT FOLDERS & FILES ADDED ----------
+    // /root/documents
+    Node documents = new Node("documents", false);
+    root.addChild(documents);
+
+    // /root/documents/resume.docx
+    Node resume = new Node("resume.docx", true);
+    documents.addChild(resume);
+
+    // /root/documents/notes
+    Node notes = new Node("notes", false);
+    documents.addChild(notes);
+
+    // /root/documents/notes/todo.txt
+    Node todo = new Node("todo.txt", true);
+    notes.addChild(todo);
+
+    // /root/pictures
+    Node pictures = new Node("pictures", false);
+    root.addChild(pictures);
+
+    // /root/pictures/travel.jpg
+    Node travel = new Node("travel.jpg", true);
+    pictures.addChild(travel);
+
+    // /root/music
+    Node music = new Node("music", false);
+    root.addChild(music);
+
+    // /root/music/song.mp3
+    Node song = new Node("song.mp3", true);
+    music.addChild(song);
+}
 
     // Splits a full path (like /root/docs/file.txt) into components
     private String[] splitPath(String path) {
